@@ -48,7 +48,7 @@ function App(props) {
 
   return (
     <MuiThemeProvider theme={theme}>
-      {status ? (
+      {status.type ? (
         <Snackbar
           open={openAlert}
           autoHideDuration={2000}

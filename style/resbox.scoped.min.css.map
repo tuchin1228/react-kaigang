@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEI,AAAA,iBAAiB,AAAC,CACd,MAAM,CAAM,KAAK,CACjB,MAAM,CAAM,GAAG,CAAC,KAAK,CAAC,OAAkB,CACxC,UAAU,CAAE,MAAM,CAClB,OAAO,CAAK,OAAO,CACnB,KAAK,CAAO,gBAAmB,CAC/B,SAAS,CAAG,KAAK,CACjB,cAAc,CAAE,KAAK,CACxB",
+    "sources": [
+        "../src/style/res/resbox.scoped.scss"
+    ],
+    "names": [],
+    "file": "resbox.scoped.min.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,MAAM,EAAM,IAAI;EAChB,MAAM,EAAM,GAAG,CAAC,KAAK,CAAC,OAAkB;EACxC,UAAU,EAAE,MAAM;EAClB,OAAO,EAAK,OAAO;EACnB,KAAK,EAAO,mBAAmB;EAC/B,SAAS,EAAG,KAAK;EACjB,cAAc,EAAE,KAAK;CACxB;;AAED,AAAA,2BAA2B,CAAA;EACvB,MAAM,EAAE,KAAK;CAChB",
+    "sources": [
+        "../src/style/post/post.scoped.scss"
+    ],
+    "names": [],
+    "file": "post.scoped.css"
+}

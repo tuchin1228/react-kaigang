@@ -1,26 +1,113 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-function App() {
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import Navbar from './navbar';
+import Sidebar from './sidebar';
+import Login from './view/login';
+import Post from './view/post';
+import List from './view/list';
+import Article from './view/article';
+import Search from './view/search';
+import Dashboard from './view/dashboard';
+
+const font = "'Noto Sans TC', sans-serif";
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: font,
+    button: {
+      textTransform: 'none',
+    },
+  },
+});
+
+function App(props) {
+  const [openAlert, setOpenAlert] = useState(false);
+  const { status } = props;
+
+  useEffect(() => {
+    setOpenAlert(true);
+  }, [status]);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenAlert(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <MuiThemeProvider theme={theme}>
+      {status ? (
+        <Snackbar
+          open={openAlert}
+          autoHideDuration={2000}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <MuiAlert
+            severity={status.type}
+            variant="filled"
+            onClose={handleClose}
+          >
+            {status.msg}
+          </MuiAlert>
+        </Snackbar>
+      ) : (
+        ''
+      )}
+
+      <div
+        style={{ background: '#144c92', height: '100vh', overflowY: 'hidden' }}
+      >
+        <Router>
+          <Navbar />
+          <Sidebar />
+          <Switch>
+
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/post">
+              <Post />
+            </Route>
+
+            <Route path="/search" component={Search} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/:board" component={List} />
+            <Route path="/:board/:id" component={Article} />
+
+            <Redirect from="/" to="/chat" />
+
+          </Switch>
+        </Router>
+      </div>
+    </MuiThemeProvider>
   );
 }
 
-export default App;
+const mapStateToProps = (store) => ({
+  status: store.alertReducer.status,
+});
+
+App.propTypes = {
+  status: PropTypes.shape({
+    type: PropTypes.string,
+    msg: PropTypes.string,
+  }),
+};
+App.defaultProps = {
+  status: {},
+};
+
+export default connect(mapStateToProps)(App);

@@ -406,7 +406,7 @@ const List = (props) => {
               </div>
             </div>
           </ArticleBoxTitle>
-          {ArticleList && ArticleList !== 'Fail to get list' ? (
+          {ArticleList.length !== 0 && ArticleList !== 'Fail to get list' ? (
             <>
               {ArticleList.map((item) => (
                 <Fragment key={item.timestamp}>
@@ -478,11 +478,11 @@ const List = (props) => {
             </>
           ) : (
             <>
-              <Skeleton height="100px" animation="wave" />
-              <Skeleton height="100px" animation="wave" />
-              <Skeleton height="100px" animation="wave" />
-              <Skeleton height="100px" animation="wave" />
-              <Skeleton height="100px" animation="wave" />
+              {
+                Array.from(Array(5).keys()).map(
+                  (item) => <Skeleton height="100px" animation="wave" key={item} />,
+                )
+              }
             </>
           )}
         </>

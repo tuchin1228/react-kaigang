@@ -283,6 +283,7 @@ Article.propTypes = {
   }),
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
+    // goBack: PropTypes.func.isRequired,
   }).isRequired,
   dispatchisEdits: PropTypes.func.isRequired,
   dispatchnotEdits: PropTypes.func.isRequired,

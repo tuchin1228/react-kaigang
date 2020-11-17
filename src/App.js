@@ -68,7 +68,7 @@ function App(props) {
       )}
 
       <div
-        style={{ background: '#144c92', height: '100vh', overflowY: 'hidden' }}
+        style={{ background: '#144c92', minHeight: '100vh' }}
       >
         <Router>
           <Navbar />

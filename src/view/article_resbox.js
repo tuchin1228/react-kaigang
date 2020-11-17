@@ -36,10 +36,18 @@ const ResboxStyle = styled.section`
   position: fixed;
   bottom: 0px;
   padding: 1vh 1vw;
-  width: 960px;
+  width:100%;
+  max-width: 960px;
   margin: 0 auto;
   background: white;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+  @media (max-width: 767px) {
+      width: 95% ;
+      max-width: 95% ;
+  }
+  @media (max-width:1023px) and (min-width: 768px){
+    width: 91% ;
+  }
 `;
 const BtnGroupStyle = styled(ButtonGroup)`
   &.MuiButtonGroup-root {

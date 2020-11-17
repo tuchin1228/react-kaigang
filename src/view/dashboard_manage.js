@@ -91,14 +91,15 @@ const TableStyle = styled.table`
         }
       }
     }
-    &:first-child td {
+  
+  }
+  thead tr td {
       /* border-top: 1px solid black; */
       font-weight: 500;
       font-size: 1.4em;
       background: #65a3ff;
       color: white;
     }
-  }
 `;
 
 function DashboardManage(props) {

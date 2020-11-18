@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
     padding: '0',
     borderRadius: '5px',
     paddingBottom: '20vh',
-    overflow: 'scroll',
+    // overflow: 'scroll',
     '&::-webkit-scrollbar': {
       display: 'none',
     },
@@ -73,7 +73,7 @@ const useStyles = makeStyles(() => ({
 }));
 const ArticleBoxTitle = styled.article`
   position: sticky;
-  top: 0;
+  top: 48px;
   z-index: 99;
   cursor: pointer;
   padding: 1vh 0vw;
